@@ -1,5 +1,6 @@
-import express from 'express'
-const router = express.Router();
+import { Router } from 'express'
+
+export const apiRoute = Router();
 
 const myObject = {
 name: "Fuzzy Wuzzy",
@@ -7,7 +8,7 @@ species: "bear",
 hair: false,
 }
 
-export const apiRoute = router.get("/", (req, res) => {
+apiRoute.get("/", (req, res) => {
 res.json(myObject)
 })
 
