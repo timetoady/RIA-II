@@ -1,10 +1,12 @@
 import { Router } from 'express'
-import { addAnime, getAllAnime, getAnimeByID, searchAnime } from "../controller/animeControl.js"
+import { addAnime, getAllAnime, getAnimeByID, searchAnime, deleteAnime, editEntry } from "../controller/animeControl.js"
 export const animeRouter = Router()
 
-//import controllers
-
+//Controllers
 animeRouter.post('/', addAnime)
 animeRouter.get('/', getAllAnime)
 animeRouter.get('/:id', getAnimeByID)
 animeRouter.get('/search/:query', searchAnime)
+animeRouter.delete('/delete/:id', deleteAnime)
+animeRouter.put('/edit/:id', editEntry)
+

@@ -20,12 +20,14 @@ app.use(bodyParser.json());
 
 //Routes
 app.use("/anime", animeRouter);
-app.use('/', (req, res) => {res.send("Hi! API in progress here. Don't mind the mess.")})
+
 
 //404 giver
-app.use((req, res, next) => {
-    res.status(404).send(res.json({Message: "404. Sorry, looks like we ain't findin' that."}))
-});
+// app.use((req, res, next) => {
+//     res.status(404).send(res.json({Message: "404. Sorry, looks like we ain't findin' that."}))
+// });
+
+// app.use('/', (req, res) => {res.send("Hi! API in progress here. Don't mind the mess.")})
 
 
 //main app launch upon connection to MongoDB

@@ -63,3 +63,22 @@ export const searchAnime = (req, res) => {
   );
 };
 
+export const deleteAnime = (req, res) => {
+    let animeID = req.params.id
+    Anime.deleteOne({ _id: animeID}, (err) => {
+      err
+        ? res.send(`Error! ${err}`)
+        : res.send(`Anime ID ${animeID} removed`);
+    });
+  };
+
+export const editEntry = (req, res) => {
+    const { id } = req.params
+    const update = req.body
+    const options = {omitUndefined: false, new: true}
+    Anime.findOneAndReplace({_id: id}, update, options, (err, result) => {
+      err
+      ? res.send(err)
+      : res.status(200).json(result)
+    })
+  }
