@@ -27,7 +27,7 @@ app.use("/anime", animeRouter);
 //     res.status(404).send(res.json({Message: "404. Sorry, looks like we ain't findin' that."}))
 // });
 
-// app.use('/', (req, res) => {res.send("Hi! API in progress here. Don't mind the mess.")})
+app.use('/', (req, res) => {res.send("Hi! API in progress here. Don't mind the mess.")})
 
 
 //main app launch upon connection to MongoDB
