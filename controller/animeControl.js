@@ -11,6 +11,7 @@ export const addAnime = (req, res) => {
       episodes: req.body.episodes,
       synopsis: req.body.synopsis,
       score: req.body.score,
+      mal_id: req.body.mal_id
     },
     (err, anime) => {
       err
