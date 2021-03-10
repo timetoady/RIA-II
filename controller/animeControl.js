@@ -69,7 +69,7 @@ export const deleteAnime = (req, res) => {
     Anime.deleteOne({ _id: animeID}, (err) => {
       err
         ? res.json({error: `Error! ${err}`})
-        : res.status(200).json({message: `Anime ID ${animeID} removed`});
+        : res.status(200).json({message: `Anime ID ${animeID} removed`, status: 200});
     });
   };
 
