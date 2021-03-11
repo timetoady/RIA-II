@@ -79,7 +79,7 @@ export const editEntry = (req, res) => {
     const options = {omitUndefined: false, new: true}
     Anime.findOneAndReplace({_id: id}, update, options, (err, result) => {
       err
-      ? res.send(err)
+      ? res.json(err)
       : res.status(200).json(result)
     })
   }
