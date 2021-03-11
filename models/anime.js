@@ -6,7 +6,7 @@ const animeSchema = new Schema({
     image_url: {type: String, default: "https://via.placeholder.com/225x319.jpeg/0000FF/808080?text=Oops!+Image+not+Found"},
     type: {type: String, required: true},
     episodes: {type: Number, required: true},
-    synopsis: {type: String, default: "No synopsis provided."},
+    synopsis: {type: String, default: function() {if(this.synopsis === null) {return "No synoposis available."}}},
     score:  {type: Number, required: true},
     mal_id: {type: Number, required: true}
 })
