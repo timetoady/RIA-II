@@ -4,8 +4,8 @@
 
 Database to serve and add anime info to local database. Anime info sourced from https://jikan.docs.apiary.io/, which scrapes from https://myanimelist.net/.
 
-Front end client (Netlify): https://objective-lumiere-fb0645.netlify.app/
-Back end database (Heroku): https://lit-mountain-37161.herokuapp.com/
+Client (Netlify): https://objective-lumiere-fb0645.netlify.app/
+Server (Heroku): https://lit-mountain-37161.herokuapp.com/
 
 ### Create: `POST` '/anime'
 Posts new anime to the database. Requires title, type, and mal_id (ID from myanimelist.net). image_url, episodes, synopsis, and score available but optional. No provided image_url produces a default one.
