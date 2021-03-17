@@ -1,7 +1,5 @@
 import express from "express";
-import bodyParser from "body-parser";
 import { animeRouter } from "./routes/animeRoutes.js";
-import { Anime } from "./models/anime.js";
 import mongoose from 'mongoose'
 import * as dotenv from 'dotenv'
 import cors from 'cors'
@@ -15,8 +13,8 @@ dotenv.config()
 
 //Parsing and CORS middlewares
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //Routes
 app.use("/anime", animeRouter);

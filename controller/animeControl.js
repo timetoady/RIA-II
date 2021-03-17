@@ -47,21 +47,29 @@ export const getAnimeByID = (req, res) => {
 export const searchAnime = (req, res) => {
   let { query } = req.params;
   query = query.trim();
-  Anime.aggregate(
-    [{
-      $match: {
-        $or: [
-          { title: { $regex: query, $options: "i" } },
-          { synopsis: { $regex: query, $options: "i" } },
-        ],
-      },
-      }],
-    (err, results) => {
-      err
-        ? res.status(500).json({ Message: `Oops! There was an error: ${err}` })
-        : res.status(200).json(results);
-    }
-  );
+  if(query){
+    Anime.aggregate(
+      [{
+        $match: {
+          $or: [
+            { title: { $regex: query, $options: "i" } },
+            { synopsis: { $regex: query, $options: "i" } },
+          ],
+        },
+        }],
+      (err, results) => {
+        err
+          ? res.status(500).json({ Message: `Oops! There was an error: ${err}` })
+          : res.status(200).json(results);
+      }
+    );
+  } else {
+    Anime.find((err, anime) => {
+      err && res.status(500).json({ Message: `Somethin is afoot! ${err}` });
+      res.json(anime);
+    });
+  }
+ 
 };
 
 export const deleteAnime = (req, res) => {
